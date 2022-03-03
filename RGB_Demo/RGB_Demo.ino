@@ -24,11 +24,11 @@
 const int universeSize = 16;
 
 //int brightness = 0;
-int brightness_r = 0;
-int brightness_g = -128;
-int brightness_b = 128;
+int brightness_r = 10;
+int brightness_g = 90;
+int brightness_b = 170;
 //int fadeAmount = 5;
-int fadeAmount_r = 2;
+int fadeAmount_r = 5;
 int fadeAmount_g = 3;
 int fadeAmount_b = 4;
 
@@ -57,16 +57,16 @@ void loop() {
   brightness_b += fadeAmount_b;
 
   // reverse fade direction when on edge of range
-  if (brightness_r <= 0 || brightness_r >= 255) {
+  if (brightness_r <= 5 || brightness_r >= 250) {
     fadeAmount_r = -fadeAmount_r;
   }
-  if (brightness_g <= 0 || brightness_g >= 255) {
+  if (brightness_g <= 5 || brightness_g >= 250) {
     fadeAmount_g = -fadeAmount_g;
   }
-  if (brightness_b <= 0 || brightness_b >= 255) {
+  if (brightness_b <= 5 || brightness_b >= 250) {
     fadeAmount_b = -fadeAmount_b;
   }
 
   // delay for dimming effect
-  delay(30);
+  delay(5);
 }

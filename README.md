@@ -10,5 +10,13 @@
 
 [Arduino RGB demo sketch](./RGB_Demo/RGB_Demo.ino)
 
-## todo [Single wire DMX driver]
+## Single wire DMX driver
+
+Using pulseview to decode DMX data
+
+![DMX data analysis](./images/Pulseview-dmx.png)
+
+Prototype data islator schematic
+
+![DMX data isolator](./images/Data-isolator.jpg)
 
