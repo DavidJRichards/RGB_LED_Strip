@@ -23,5 +23,13 @@ Using pulseview to decode DMX data
 
 Prototype data isolator schematic
 
-![DMX data isolator](./images/Data-isolator.jpg)
+![DMX data isolator](./images/Data-isolator.jpg) 
+![Power supply](./images/Power-supply.jpg)
 
+## Prototype circuit board
+
+[Prototype video](./images/VID_20220305_145030.mp4)
+
+![Prototype working](./images/Prototype-working.jpg)
+
+![Circuit board](./images/Prototype-board.jpg)
