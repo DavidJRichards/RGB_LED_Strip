@@ -28,7 +28,7 @@ Prototype data isolator schematic
 
 ## Prototype circuit board
 
-[Prototype video](./images/VID_20220305_145030.mp4)
+[Prototype video](./images/VID_20220305_145030.m4v)
 
 ![Prototype working](./images/Prototype-working.jpg)
 
