@@ -35,6 +35,10 @@ void setup() {
   Serial.begin(115200);
   myMCP23017Encoders.begin(0x27);
 
+  myMCP23017Encoders.setAccel(1, 10.0);
+  myMCP23017Encoders.setAccel(2, 10.0);
+  myMCP23017Encoders.setAccel(3, 10.0);
+
   myMCP23017Encoders.write(3,red);
   myMCP23017Encoders.write(2,green);
   myMCP23017Encoders.write(1,blue);
@@ -50,6 +54,8 @@ void setup() {
 
 }
 
+
+
 void mode_proc(int mode)
 {
     switch(mode)
@@ -58,15 +64,23 @@ void mode_proc(int mode)
       red = myMCP23017Encoders.read(3);
       green = myMCP23017Encoders.read(2);
       blue = myMCP23017Encoders.read(1);
-
+      
+      if(red<0)myMCP23017Encoders.write(3,0);
+      if(green<0)myMCP23017Encoders.write(2,0);
+      if(blue<0)myMCP23017Encoders.write(1,0);
+      
       if(red<0)red=0;
       if(green<0)green=0;
       if(blue<0)blue=0;
-      
+
+      if(red>255)myMCP23017Encoders.write(3,255);
+      if(green>255)myMCP23017Encoders.write(2,255);
+      if(blue>255)myMCP23017Encoders.write(1,255);
+
       if(red>255)red=255;
       if(green>255)green=255;
       if(blue>255)blue=255;
-      
+
       break;
         
       case 1:      
@@ -89,29 +103,29 @@ void mode_proc(int mode)
 }
 
 void loop() {
-    mode_proc(rgb_mode);
+    
 
  
-#ifndef DEBUG
   t = millis();
-  if ( (t % 25L == 0) || update)
+  if ( (t % 100L == 0) || update)
   {
+  mode_proc(rgb_mode);
+#ifndef DEBUG
     DMX.beginTransmission();
     DMX.write(1, red);
     DMX.write(2, green);
     DMX.write(3, blue);
     DMX.endTransmission();
-    update = false;
-  }
 #else
-  //Serial.print("Lighting==");Serial.print(lighting);
-  Serial.print("Value==");Serial.print(value);
-  Serial.print("\tSaturation=");Serial.print(saturation);
-  Serial.print("\tHue=");Serial.print(hue);
-  Serial.print("\t Red=");Serial.print(red);
-  Serial.print("\t Green=");Serial.print(green);
-  Serial.print("\t Blue=");Serial.println(blue);
-    
+    //Serial.print("Lighting==");Serial.print(lighting);
+//    Serial.print("Value==");Serial.print(value);
+//    Serial.print("\tSaturation=");Serial.print(saturation);
+//    Serial.print("\tHue=");Serial.print(hue);
+    Serial.print("\t Red=");Serial.print(red);
+    Serial.print("\t Green=");Serial.print(green);
+    Serial.print("\t Blue=");Serial.println(blue);
 #endif
-
+    update = false;
+  } 
+ 
 }
