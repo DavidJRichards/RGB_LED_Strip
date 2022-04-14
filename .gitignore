@@ -1,0 +1,8 @@
+*~
+*.o
+*.elf
+*.bin
+*.srec
+*.dis
+*.map
+Encoder_Demo*
