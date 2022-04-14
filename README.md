@@ -12,6 +12,8 @@
 
 [Arduino RGB demo sketch](./RGB_Demo/RGB_Demo.ino)
 
+[Arduino RGB encoder sketch](./DMX_Encoder/DMX_Encoder.ino)
+
 [RGB demo video](./images/VID_20220303_161747.mp4)
 
 
